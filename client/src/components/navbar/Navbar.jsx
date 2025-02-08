@@ -4,6 +4,8 @@ import './Navbar.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faCircle, faUserSlash} from '@fortawesome/free-solid-svg-icons'
 
+import API from '../../library/API'
+
 export function TopNavBar() {
     const [ businessSelected, setBusinessSelected ] = useState(false) 
     const [ eventsSelected, setEventsSelected ] = useState(false) 
@@ -14,6 +16,17 @@ export function TopNavBar() {
         location.search = `?tab=${name}`
     }
 
+    async function setProfile() {
+        const [ users, error ] = await API.getUsers()
+
+        if(error) return console.error(error)
+
+        const randomIndex = Math.floor(Math.random() * users.length)
+        const username = users[randomIndex].name
+
+        setDisplayUsername(() => username)
+    }
+
     useEffect(() => {
         if(location.pathname.startsWith('/view')) {
             const urlSearch = new URLSearchParams(location.search)
@@ -21,7 +34,8 @@ export function TopNavBar() {
             
             if('tab' in params) {
                 setDisplayUsername(() => '<name here>')
-
+                setProfile()
+                
                 switch(params.tab) {
                     case 'business': {
                         setBusinessSelected(() => true)
