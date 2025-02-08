@@ -7,6 +7,8 @@ import { faCircle, faUserSlash} from '@fortawesome/free-solid-svg-icons'
 export function TopNavBar() {
     const [ businessSelected, setBusinessSelected ] = useState(false) 
     const [ eventsSelected, setEventsSelected ] = useState(false) 
+    const [ displayUsername, setDisplayUsername ] = useState('Login')
+    const [ isInViews, setIsInViews ] = useState(false)
 
     function tabRedirect(name) {
         location.search = `?tab=${name}`
@@ -18,6 +20,8 @@ export function TopNavBar() {
             const params = Object.fromEntries(urlSearch.entries())
             
             if('tab' in params) {
+                setDisplayUsername(() => '<name here>')
+
                 switch(params.tab) {
                     case 'business': {
                         setBusinessSelected(() => true)
@@ -34,6 +38,7 @@ export function TopNavBar() {
                 location.search = '?tab=business'
                 setBusinessSelected(() => false)
                 setEventsSelected(() => false)
+                // setIsInViews(() => false)
             }
         }
     }, [])
@@ -48,7 +53,7 @@ export function TopNavBar() {
             <div className="location">Chicago, IL</div>
         </div>
         <div className="right">
-            <div className="name" onClick={() => location.assign('/login')}>Login</div>
+            <div className="name" onClick={() => !isInViews ? location.assign('/login') : null}>{ displayUsername }</div>
             <FontAwesomeIcon icon={faUserSlash} className='profile-icon'></FontAwesomeIcon>
         </div>
     </div>
