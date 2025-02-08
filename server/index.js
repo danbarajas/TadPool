@@ -87,6 +87,36 @@ app.get('/organizers', (req, res) => {
     });
 });
 
+app.get('/random/organizers', (req, res) => {
+    organizersDao.getAllOrganizers().then((organizers) => {
+        const randomIndex = Math.floor(Math.random() * organizers.length);
+        res.json(organizers[randomIndex]);
+    }).catch((err) => {
+        console.error(err);
+        res.status(500).send('Internal Server Error');
+    });
+});
+
+app.get('/random/businesses', (req, res) => {
+    businessesDao.getAllBusinesses().then((businesses) => {
+        const randomIndex = Math.floor(Math.random() * businesses.length);
+        res.json(businesses[randomIndex]);
+    }).catch((err) => {
+        console.error(err);
+        res.status(500).send('Internal Server Error');
+    });
+});
+
+app.get('/random/users', (req, res) => {
+    userDao.getAllUsers().then((users) => {
+        const randomIndex = Math.floor(Math.random() * users.length);
+        res.json(users[randomIndex]);
+    }).catch((err) => {
+        console.error(err);
+        res.status(500).send('Internal Server Error');
+    });
+});
+
 const port = 3000;
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
