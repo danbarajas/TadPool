@@ -1,7 +1,7 @@
 import {} from 'react'
 import './login.scss'
 
-import { TopNavBar } from '../../components/Navbar'
+import { TopNavBar } from '../../components/navbar/Navbar'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBuilding, faShop, faUser } from '@fortawesome/free-solid-svg-icons'
 
@@ -25,7 +25,7 @@ export default function LoginPage() {
                             <li>Invite small businesses to their venue</li>
                         </ul>
                     </div>
-                    <button className="login-submit">Continue</button>
+                    <button className="login-submit" onClick={() => location.assign('/view/organizer')}>Continue</button>
                 </article>
                 <article>
                     <div className='login-name'>
@@ -39,7 +39,7 @@ export default function LoginPage() {
                             <li>Accept invites from organizers for events</li>
                         </ul>
                     </div>
-                    <button className="login-submit">Continue</button>
+                    <button className="login-submit" onClick={() => location.assign('/view/business')}>Continue</button>
                 </article>
                 <article>
                     <div className='login-name'>
@@ -52,7 +52,7 @@ export default function LoginPage() {
                             <li>Follow small buisnesses</li>
                         </ul>
                     </div>
-                    <button className="login-submit">Continue</button>
+                    <button className="login-submit" onClick={() => location.assign('/view/customer')}>Continue</button>
                 </article>
             </section>
         </main>

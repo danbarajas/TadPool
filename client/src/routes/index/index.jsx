@@ -2,7 +2,7 @@ import { useEffect } from 'react'
 import './index.scss'
 
 import API from '../../library/API'
-import { TopNavBar } from '../../components/Navbar'
+import { TopNavBar } from '../../components/navbar/Navbar'
 
 export default function IndexPage() {
     
