@@ -50,6 +50,15 @@ app.get('/events/date/:date', (req, res) => {
     });
 });
 
+app.get('/events/address/:address', (req, res) => {
+    eventsDao.getEventByAddress(req.params.address).then((events) => {
+        res.json(events);
+    }).catch((err) => {
+        console.error(err);
+        res.status(500).send('Internal Server Error');
+    });
+});
+
 const port = 3000;
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);

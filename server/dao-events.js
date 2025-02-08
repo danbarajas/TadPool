@@ -37,3 +37,15 @@ exports.getEventByDate = (date) => {
         });
     });
 }
+
+exports.getEventByAddress = (address) => {
+    return new Promise((resolve, reject) => {
+        db.all('SELECT * FROM events WHERE address LIKE ?', [address], (err, rows) => {
+            if (err) {
+                reject(err);
+            } else {
+                resolve(rows);
+            }
+        });
+    });
+}
