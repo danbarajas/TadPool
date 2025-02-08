@@ -1,6 +1,7 @@
 $container-theme: rgb(80, 80, 90);
 $sub-container-theme: rgb(50, 50, 60);
 $border-radius-size: 6px;
+$container-hover: rgb(180, 180, 200, 0.5);
 
 .views {
     width: 90vw;
@@ -13,6 +14,14 @@ $border-radius-size: 6px;
     display: flex;
     flex-direction: column;
 
+    .description {
+        display: flex;
+        flex-direction: column;
+        align-items: start !important;
+
+        font-weight: bold;
+    }
+
     section {
         width: 100%;
 
@@ -22,6 +31,11 @@ $border-radius-size: 6px;
         .name {
             display: flex;
             flex-direction: column;
+            align-items: start !important;
+            gap: 8px;
+
+            font-size: 24px;
+            font-weight: bold;
         }
 
         button {
@@ -31,6 +45,13 @@ $border-radius-size: 6px;
             padding: 8px;
 
             font-size: 16px;
+
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        button:hover {
+            background-color: rgb(80, 250, 100);
         }
         
         div {
@@ -41,7 +62,7 @@ $border-radius-size: 6px;
             border-radius: $border-radius-size;
             background-color: $sub-container-theme;
 
-            padding: 0.5em;
+            padding: 0.5em 1em;
         }
     }
 }
