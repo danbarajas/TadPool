@@ -1,13 +1,27 @@
 import { useEffect } from 'react'
 import './index.scss'
 
+import API from '../../library/API'
+import { TopNavBar } from '../../components/Navbar'
+
 export default function IndexPage() {
+    
+    async function load() {
+        
+    }
+
     useEffect(() => {
-        console.log('hi')
+        console.clear()
+    
+        load()    
     }, [])
 
     return <div className="index-page">
-        <title>Hackathon</title>
-        test
+        <TopNavBar></TopNavBar>
+        <main>
+            <section className='business-container'>
+                <div className="name">Business Name</div>
+            </section>
+        </main>
     </div>
 }
