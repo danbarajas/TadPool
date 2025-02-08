@@ -3,6 +3,7 @@ const express = require('express');
 
 const userDao = require('./dao-users');
 const eventsDao = require('./dao-events');
+const e = require('cors');
 
 const app = new express();
 app.use(express.json());
@@ -30,6 +31,24 @@ app.get('/users', (req, res) => {
             res.status(500).send('Internal Server Error');
         });
     });
+
+app.get('/events/organizer/:organizer', (req, res) => {
+    eventsDao.getEventByOrganizer(req.params.organizer).then((events) => {
+        res.json(events);
+    }).catch((err) => {
+        console.error(err);
+        res.status(500).send('Internal Server Error');
+    });
+});
+
+app.get('/events/date/:date', (req, res) => {
+    eventsDao.getEventByDate(req.params.date).then((events) => {
+        res.json(events);
+    }).catch((err) => {
+        console.error(err);
+        res.status(500).send('Internal Server Error');
+    });
+});
 
 const port = 3000;
 app.listen(port, () => {
