@@ -12,10 +12,20 @@ export default function LoginPage() {
             </header>
             <section>
                 <article>
-                    
+                    <div className='login-name'>Organizer</div>
+                    <div className="description">Descript</div>
+                    <button className="login-submit">Continue</button>
                 </article>
-                <article></article>
-                <article></article>
+                <article>
+                    <div className='login-name'>Business</div>
+                    <div className="description">Descript</div>
+                    <button className="login-submit">Continue</button>
+                </article>
+                <article>
+                    <div className='login-name'>Customer</div>
+                    <div className="description">Descript</div>
+                    <button className="login-submit">Continue</button>
+                </article>
             </section>
         </main>
     </div>
