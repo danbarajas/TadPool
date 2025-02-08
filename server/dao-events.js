@@ -16,7 +16,7 @@ exports.getAllEvents = () => {
 
 exports.getEventByOrganizer = (organizer) => {
     return new Promise((resolve, reject) => {
-        db.all('SELECT * FROM events WHERE organizer LIKE ?', [organizer], (err, rows) => {
+        db.all('SELECT * FROM events WHERE organizer LIKE ?', [`%${organizer}%`], (err, rows) => {
             if (err) {
                 reject(err);
             } else {
@@ -28,7 +28,7 @@ exports.getEventByOrganizer = (organizer) => {
 
 exports.getEventByDate = (date) => {
     return new Promise((resolve, reject) => {
-        db.all('SELECT * FROM events WHERE date LIKE ?', [date], (err, rows) => {
+        db.all('SELECT * FROM events WHERE date LIKE ?', [`%${date}%`], (err, rows) => {
             if (err) {
                 reject(err);
             } else {

@@ -12,6 +12,8 @@ CREATE TABLE small_businesses (
 
 CREATE TABLE events (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL,
+    description TEXT NOT NULL,
     address TEXT NOT NULL,
     date TEXT NOT NULL,
     organizer TEXT NOT NULL,
@@ -32,10 +34,11 @@ INSERT INTO small_businesses (name, bio, email, address, website, opening_hours)
     ('The Gym', 'A local gym with a variety of fitness classes.', 'gym@hotmail.com', '321 Gym St', 'www.gym.com', 'Mon-Fri: 5am-11pm, Sat-Sun: 7am-7pm'),
     ('The Art Studio', 'An art studio offering classes and workshops.', 'art@gmail.com', '654 Art St', 'www.artstudio.com', 'Mon-Fri: 10am-8pm, Sat: 10am-6pm, Sun: Closed');
 
-INSERT INTO events (address, date, organizer, list_of_attendees, website) VALUES
-    ('438 Main St', '2025-05-01 11am-5pm', 'John Deere', '[The Coffee Shop, The Book Nook, The Gym, The Art Studio]', 'www.event1.com'),
-    ('3729 Elm St', '2025-06-15 10am-4pm', 'Fulcrum GT', '[The Flower Shop, The Bakery, The Coffee Shop]', 'www.event2.com'),
-    ('164 Oak St', '2025-07-20 9am-3pm', 'Michael Jordan', '[The Gym, The Art Studio]', 'www.event3.com');
+INSERT INTO events (name, description, address, date, organizer, list_of_attendees, website) VALUES
+    ('The Flower Festival', 'A celebration of flowers and gardening.', '123 Flower St', '2025-05-15 10am-4pm', 'John Deere', '[The Flower Shop, The Bakery, The Gym]', 'www.flowerfestival.com'),
+    ('The Art Fair', 'An exhibition of local artists and their work.', '456 Art St', '2025-06-20 11am-5pm', 'Fulcrum GT', '[The Art Studio, The Gym, The Book Nook]', 'www.artfair.com'),
+    ('The Fitness Expo', 'A showcase of fitness products and services.', '789 Gym St', '2025-07-25 10am-4pm', 'Michael Jordan', '[The Gym, The Coffee Shop]', 'www.fitnessexpo.com');
+
 
 INSERT INTO users (name) VALUES
     ('Mario'),

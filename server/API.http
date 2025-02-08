@@ -5,10 +5,18 @@ GET http://localhost:3000/users HTTP/1.1
 GET http://localhost:3000/events HTTP/1.1
 
 ###
-GET http://localhost:3000/events/organizer/john deere HTTP/1.1
+GET http://localhost:3000/events/organizer/jo  HTTP/1.1
 
 ###
-GET http://localhost:3000/events/date/2025-05-01 11am-5pm HTTP/1.1
+GET http://localhost:3000/events/date/2025-05-15 HTTP/1.1
 
 ###
 GET http://localhost:3000/events/address/3729 elm st HTTP/1.1
+
+###
+GET http://localhost:3000/businesses HTTP/1.1
+
+###
+GET http://localhost:3000/businesses/coffee HTTP/1.1
+
+
