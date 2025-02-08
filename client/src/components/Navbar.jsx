@@ -1,10 +1,14 @@
-import {} from 'react'
+import { useEffect } from 'react'
 import './Navbar.scss'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faUser , faCircle} from '@fortawesome/free-solid-svg-icons'
+import { faCircle, faUserSlash} from '@fortawesome/free-solid-svg-icons'
 
 export function TopNavBar() {
+    useEffect(() => {
+
+    }, [])
+
     return <div className="top-navbar">
         <div className="left">
             <FontAwesomeIcon icon={faCircle} className='logo'></FontAwesomeIcon>
@@ -12,10 +16,11 @@ export function TopNavBar() {
                 <div className="businesses">Businesses</div>
                 <div className="events">Events</div>
             </div>
+            <div className="location">Chicago, IL</div>
         </div>
         <div className="right">
-            <div className="name">Login</div>
-            <FontAwesomeIcon icon={faUser} className='profile-icon'></FontAwesomeIcon>
+            <div className="name" onClick={() => location.assign('/login')}>Login</div>
+            <FontAwesomeIcon icon={faUserSlash} className='profile-icon'></FontAwesomeIcon>
         </div>
     </div>
 }
