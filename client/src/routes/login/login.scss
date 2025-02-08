@@ -1,0 +1,108 @@
+$container-theme: rgb(80, 80, 90);
+$sub-container-theme: rgb(40, 40, 50);
+$container-hover: rgb(180, 180, 200, 0.5);
+$border-radius-size: 6px;
+$submit-button: rgb(100, 100, 200);
+
+.login-page {
+    display: flex;
+    
+    main {
+        width: 100%;
+
+        margin-top: 5em;
+ 
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+        padding: 2em 0;
+
+        section {
+            width: 90vw;
+
+            padding: 0.5em;
+            margin-top: 1em;
+
+            display: flex;
+            justify-content: space-between;
+            flex-direction: row;
+
+            article {
+                width: 30%;
+
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+
+                background-color: $container-theme;
+
+                li {
+                    font-size: 18px;
+                    font-weight: 500;
+                }
+
+                .login-submit {
+                    border: none;
+                    border-radius: $border-radius-size;
+
+                    padding: 0.5em;
+                    margin: 1em;
+
+                    font-size: 20px;
+                    font-weight: bold;
+
+                    color: white;
+                    background-color: $submit-button;
+
+                    cursor: pointer;
+                    transition: background-color 0.2s ease;
+                }
+
+                .login-submit:hover {
+                    background-color: rgb(80, 200, 100);
+                }
+
+                .description {
+                    width: 80%;
+
+                    background-color: $sub-container-theme;
+
+                    padding: 1em;
+                }
+                
+                .login-name {
+                    font-size: 2em;
+                    font-weight: bold;
+                    
+                    margin: 0.5em;
+                    padding: 4px;
+
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    gap: 12px;
+
+                    span {
+                        border-bottom: 4px solid $container-hover;
+                    }
+                }
+            }
+        }
+
+        header {
+            width: 90vw;
+
+            padding: 0.5em;
+            border-radius: $border-radius-size;
+
+            text-align: center;
+            font-size: 2em;
+            font-weight: bold;
+        
+            background-color: $container-theme;
+        }
+    }
+}

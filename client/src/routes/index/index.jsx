@@ -2,7 +2,8 @@ import { useEffect } from 'react'
 import './index.scss'
 
 import API from '../../library/API'
-import { TopNavBar } from '../../components/Navbar'
+import { TopNavBar } from '../../components/navbar/Navbar'
+import Views from '../../components/views/views'
 
 export default function IndexPage() {
     
@@ -19,9 +20,7 @@ export default function IndexPage() {
     return <div className="index-page">
         <TopNavBar></TopNavBar>
         <main>
-            <section className='business-container'>
-                <div className="name">Business Name</div>
-            </section>
+            <Views></Views>
         </main>
     </div>
 }

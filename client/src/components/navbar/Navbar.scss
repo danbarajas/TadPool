@@ -1,11 +1,16 @@
 $top-navbar-theme: rgb(30, 30, 40);
 $top-navbar-profile: rgb(80, 100, 200);
+$top-navbar-hover: rgb(180, 180, 200, 0.5);
+$border-radius-size: 6px;
 
 .top-navbar {
     width: 100%;
     height: 4em;
 
     font-size: 20px;
+
+    top: 0;
+    left: 0;
 
     position: fixed;
     display: flex;
@@ -25,6 +30,14 @@ $top-navbar-profile: rgb(80, 100, 200);
         flex-direction: row;
         gap: 0.5em;
 
+        .location {
+            display: flex;
+
+            border-radius: 24px;
+            padding: 0.5em;
+            background-color: $top-navbar-hover;
+        }
+
         .tab {
             margin-left: 1em;
 
@@ -34,15 +47,22 @@ $top-navbar-profile: rgb(80, 100, 200);
             gap: 0.5em;
         
             div {
-                border-bottom: 3px solid rgb(180, 180, 200);
+                border-bottom: 3px solid $top-navbar-hover;
                 padding: 8px;
+
+                border-top-left-radius: $border-radius-size;
+                border-top-right-radius: $border-radius-size;
 
                 cursor: pointer;
                 transition: background-color 0.2s ease;
             }
 
+            div[data-selected="true"] {
+                background-color: $top-navbar-hover;
+            }
+
             div:hover {
-                background-color: rgb(180, 180, 200, 0.5);
+                background-color: $top-navbar-hover;
             }
         }
     }
@@ -55,7 +75,25 @@ $top-navbar-profile: rgb(80, 100, 200);
         padding: 0 0.75em;
         gap: 0.5em;
 
+        .name {
+            padding: 0.5em;
+
+            border-top-left-radius: $border-radius-size;
+            border-top-right-radius: $border-radius-size;
+
+            border-bottom: 3px solid $top-navbar-hover;
+
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+        .name:hover {
+            background-color: $top-navbar-hover;
+        }
+
         .profile-icon {
+            aspect-ratio: 1 / 1;
+
             border-radius: 50%;
             padding: 12px;
             background-color: $top-navbar-profile;

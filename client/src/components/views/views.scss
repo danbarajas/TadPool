@@ -1,0 +1,47 @@
+$container-theme: rgb(80, 80, 90);
+$sub-container-theme: rgb(50, 50, 60);
+$border-radius-size: 6px;
+
+.views {
+    width: 90vw;
+
+    margin-top: 6em;
+    padding: 1em;
+
+    background-color: $container-theme;
+
+    display: flex;
+    flex-direction: column;
+
+    section {
+        width: 100%;
+
+        display: flex;
+        justify-content: space-between;
+
+        .name {
+            display: flex;
+            flex-direction: column;
+        }
+
+        button {
+            border: none;
+            border-radius: 4px;
+            
+            padding: 8px;
+
+            font-size: 16px;
+        }
+        
+        div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            border-radius: $border-radius-size;
+            background-color: $sub-container-theme;
+
+            padding: 0.5em;
+        }
+    }
+}
