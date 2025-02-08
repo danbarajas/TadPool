@@ -4,6 +4,7 @@ const express = require('express');
 const userDao = require('./dao-users');
 const eventsDao = require('./dao-events');
 const businessesDao = require('./dao-businesses');
+const organizersDao = require('./dao-organizers');
 
 const app = new express();
 app.use(express.json());
@@ -71,6 +72,15 @@ app.get('/businesses', (req, res) => {
 app.get('/businesses/:business', (req, res) => {
     businessesDao.getEventByBusiness(req.params.business).then((events) => {
         res.json(events);
+    }).catch((err) => {
+        console.error(err);
+        res.status(500).send('Internal Server Error');
+    });
+});
+
+app.get('/organizers', (req, res) => {
+    organizersDao.getAllOrganizers().then((organizers) => {
+        res.json(organizers);
     }).catch((err) => {
         console.error(err);
         res.status(500).send('Internal Server Error');

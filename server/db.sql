@@ -21,6 +21,11 @@ CREATE TABLE events (
     website TEXT NOT NULL
 );
 
+CREATE TABLE organizers (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    name TEXT NOT NULL
+);
+
 CREATE TABLE users (
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     name TEXT NOT NULL
@@ -39,6 +44,13 @@ INSERT INTO events (name, description, address, date, organizer, list_of_attende
     ('The Art Fair', 'An exhibition of local artists and their work.', '456 Art St', '2025-06-20 11am-5pm', 'Fulcrum GT', '[The Art Studio, The Gym, The Book Nook]', 'www.artfair.com'),
     ('The Fitness Expo', 'A showcase of fitness products and services.', '789 Gym St', '2025-07-25 10am-4pm', 'Michael Jordan', '[The Gym, The Coffee Shop]', 'www.fitnessexpo.com');
 
+INSERT INTO Organizers (name) VALUES
+    ('John Deere'),
+    ('Fulcrum GT'),
+    ('Michael Jordan'),
+    ('UIC'),
+    ('The Chicago Park District'),
+    ('The Chicago Public Library');
 
 INSERT INTO users (name) VALUES
     ('Mario'),

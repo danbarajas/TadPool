@@ -19,4 +19,6 @@ GET http://localhost:3000/businesses HTTP/1.1
 ###
 GET http://localhost:3000/businesses/coffee HTTP/1.1
 
+###
+GET http://localhost:3000/organizers HTTP/1.1
 
