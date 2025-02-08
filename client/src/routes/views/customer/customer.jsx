@@ -8,6 +8,7 @@ import Views from '../../../components/views/views'
 import { TopNavBar } from '../../../components/navbar/Navbar'
 
 import API from '../../../library/API'
+import Footer from '../../../components/footer/footer'
 
 export default function CustomerView() {
     const [ viewsList, setViewsList ] = useState([])
@@ -29,7 +30,7 @@ export default function CustomerView() {
             
                         setViewsList(curr => [...curr, (
                             <Views key={uuid.v4()} name={data.name} bio={data.bio} 
-                                buttonData={'Donate'} address={data.address} date={data.date} />
+                                buttonData={'Donate'} address={data.address} date={data.opening_hours} />
                         )])
                     }
                 } else {
@@ -59,5 +60,6 @@ export default function CustomerView() {
     return <div className="customer-view">
         <TopNavBar></TopNavBar>
         <div className="views-list">{ viewsList }</div>
+        <Footer></Footer>
     </div>
 }

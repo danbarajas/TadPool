@@ -8,6 +8,7 @@ import Views from '../../../components/views/views'
 import { TopNavBar } from '../../../components/navbar/Navbar'
 
 import API from '../../../library/API'
+import Footer from '../../../components/footer/footer'
 
 export default function OrganizerView() {
     const [ viewsList, setViewsList ] = useState([])
@@ -24,10 +25,10 @@ export default function OrganizerView() {
             setViewsList(() => [])
             for(let i = 0; i < organizers.length; i++) {
                 const data = organizers[i]
-    
+
                 setViewsList(curr => [...curr, (
                     <Views key={uuid.v4()} name={data.name} bio={data.bio} 
-                        buttonData={'Invite to venue'} address={data.address} date={data.date} />
+                        buttonData={'Invite to venue'} address={data.address} date={data.opening_hours} />
                 )])
             }
         } else {
@@ -57,5 +58,6 @@ export default function OrganizerView() {
     return <div className="organizer-view">
         <TopNavBar></TopNavBar>
         <div className="views-list">{ viewsList }</div>
+        <Footer></Footer>
     </div>
 }

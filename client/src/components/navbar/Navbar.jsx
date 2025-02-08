@@ -6,7 +6,7 @@ import { faBuilding, faCircle, faShop, faUser, faUserSlash} from '@fortawesome/f
 
 import API from '../../library/API'
 
-export function TopNavBar() {
+export function TopNavBar({ hideTabs=false }) {
     const [ businessSelected, setBusinessSelected ] = useState(false) 
     const [ eventsSelected, setEventsSelected ] = useState(false) 
     const [ displayUsername, setDisplayUsername ] = useState('---')
@@ -93,7 +93,7 @@ export function TopNavBar() {
     return <div className="top-navbar">
         <div className="left">
             <img src='/TadPool-transparent.png' className='logo' onClick={() => location.assign('/')} />
-            <div className="tab">
+            <div className="tab" style={{ display: hideTabs ? 'none' : 'flex' }}>
                 <div className="businesses" data-selected={businessSelected} onClick={() => tabRedirect('business')}>Businesses</div>
                 <div className="events" data-selected={eventsSelected} onClick={() => tabRedirect('events')}>Events</div>
             </div>

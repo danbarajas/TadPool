@@ -5,6 +5,7 @@ import * as uuid from 'uuid'
 import API from '../../library/API'
 import { TopNavBar } from '../../components/navbar/Navbar'
 import Views from '../../components/views/views'
+import Footer from '../../components/footer/footer'
 
 export default function IndexPage() {
         const [ viewsList, setViewsList ] = useState([])
@@ -57,7 +58,9 @@ export default function IndexPage() {
     return <div className="index-page">
         <TopNavBar></TopNavBar>
         <main>
+            <div className="welcome"></div>
             <div className="views-list">{ viewsList }</div>
         </main>
+        <Footer></Footer>
     </div>
 }

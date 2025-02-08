@@ -2,9 +2,12 @@ $business-container-theme: rgb(80, 80, 90);
 
 .index-page {
     display: flex;
+    flex-direction: column;
 
     main {
         width: 100%;
+
+        margin-top: 3em;
 
         display: flex;
         justify-content: center;

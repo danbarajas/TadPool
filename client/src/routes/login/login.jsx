@@ -7,7 +7,7 @@ import { faBuilding, faShop, faUser } from '@fortawesome/free-solid-svg-icons'
 
 export default function LoginPage() {
     return <div className="login-page">
-        <TopNavBar></TopNavBar>
+        <TopNavBar hideTabs></TopNavBar>
         <main>
             <header>
                 Who Are You?
