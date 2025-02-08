@@ -1,4 +1,4 @@
-$main-theme: rgb(40, 40, 50);
+$main-theme: rgb(250, 250, 250);
 
 * {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -8,7 +8,7 @@ html, body, #root {
     width: 100%;
     height: 100%;
 
-    color: white;
+    color: rgb(3, 113, 113);
     background-color: $main-theme;
 
     margin: 0;

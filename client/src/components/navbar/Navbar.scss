@@ -1,6 +1,6 @@
-$top-navbar-theme: rgb(30, 30, 40);
-$top-navbar-profile: rgb(80, 100, 200);
-$top-navbar-hover: rgb(180, 180, 200, 0.5);
+$top-navbar-theme: rgb(163, 213, 255);
+$top-navbar-profile: rgb(168, 212, 173);
+$top-navbar-hover: rgb(2, 128, 144, 0.25);
 $border-radius-size: 6px;
 
 .top-navbar {
@@ -16,7 +16,7 @@ $border-radius-size: 6px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2px solid rgb(70, 70, 75);
+    border-bottom: 2px solid rgb(72, 190, 255);
 
     background-color: $top-navbar-theme;
 
