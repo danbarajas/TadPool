@@ -1,17 +1,42 @@
+$container-theme: rgb(80, 80, 90);
+
 .views {
     width: 90vw;
 
     margin-top: 6em;
     padding: 1em;
 
-    background-color: red;
+    background-color: $container-theme;
 
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
 
     section {
-        // display: flex;
+        width: 100%;
 
-        background-color: blue;
+        display: flex;
+        justify-content: space-between;
+
+        .name {
+            display: flex;
+            flex-direction: column;
+        }
+
+        button {
+            border: none;
+            border-radius: 4px;
+            
+            padding: 8px;
+
+            font-size: 16px;
+        }
+        
+        div {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 0.5em;
+        }
     }
 }

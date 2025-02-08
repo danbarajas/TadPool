@@ -57,6 +57,10 @@ $border-radius-size: 6px;
                 transition: background-color 0.2s ease;
             }
 
+            div[data-selected="true"] {
+                background-color: $top-navbar-hover;
+            }
+
             div:hover {
                 background-color: $top-navbar-hover;
             }

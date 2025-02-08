@@ -9,6 +9,6 @@ import { TopNavBar } from '../../../components/navbar/Navbar'
 export default function OrganizerView() {
     return <div className="organizer-view">
         <TopNavBar></TopNavBar>
-        <Views name={'name'} bio={'bio'} description={'description'} />
+        <Views name={'name'} bio={'bio'} description={'description'} buttonData={'button'} />
     </div>
 }
