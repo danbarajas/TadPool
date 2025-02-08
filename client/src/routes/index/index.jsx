@@ -58,7 +58,11 @@ export default function IndexPage() {
     return <div className="index-page">
         <TopNavBar></TopNavBar>
         <main>
-            <div className="welcome"></div>
+            <div className="welcome">
+                <h1>Welcome to TadPool!</h1>
+                <h3>You must login to interact!</h3>
+                <a href="/login">Login Here!</a>
+            </div>
             <div className="views-list">{ viewsList }</div>
         </main>
         <Footer></Footer>

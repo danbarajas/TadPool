@@ -7,11 +7,38 @@ $business-container-theme: rgb(80, 80, 90);
     main {
         width: 100%;
 
-        margin-top: 3em;
+        margin-top: 4em;
 
         display: flex;
+        flex-direction: column;
+        align-items: center;
         justify-content: center;
         padding: 2em 0;
+
+        .welcome {
+            width: 90vw;
+            height: 15em;
+
+            font-size: 1.2em;
+
+            text-align: center;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            padding: 1em;
+            border-radius: 4px;
+
+            color: white;
+            background-color: rgb(150, 150, 220);
+
+            a {
+                font-weight: bold;
+                color: rgb(155, 255, 155);
+            }
+        }
 
         .business-container {
             width: 90vw;
