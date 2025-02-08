@@ -1,0 +1,17 @@
+.views {
+    width: 90vw;
+
+    margin-top: 6em;
+    padding: 1em;
+
+    background-color: red;
+
+    display: flex;
+    flex-direction: row;
+
+    section {
+        // display: flex;
+
+        background-color: blue;
+    }
+}
