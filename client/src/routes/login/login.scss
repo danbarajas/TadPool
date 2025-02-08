@@ -38,6 +38,11 @@ $submit-button: rgb(100, 100, 200);
 
                 background-color: $container-theme;
 
+                li {
+                    font-size: 18px;
+                    font-weight: 500;
+                }
+
                 .login-submit {
                     border: none;
                     border-radius: $border-radius-size;
@@ -69,12 +74,20 @@ $submit-button: rgb(100, 100, 200);
                 
                 .login-name {
                     font-size: 2em;
+                    font-weight: bold;
                     
                     margin: 0.5em;
                     padding: 4px;
-                    border-bottom: 4px solid $container-hover;
 
-                    font-weight: bold;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+
+                    gap: 12px;
+
+                    span {
+                        border-bottom: 4px solid $container-hover;
+                    }
                 }
             }
         }
