@@ -16,8 +16,6 @@ export default function BusinessView() {
             const urlSearch = new URLSearchParams(location.search)
             const params = Object.fromEntries(urlSearch.entries())
     
-            console.log(params)
-    
             if(params.tab === 'business') {
                 const [ organizers, error ] = await API.getBusinesses()
                 
@@ -29,15 +27,13 @@ export default function BusinessView() {
         
                     setViewsList(curr => [...curr, (
                         <Views key={uuid.v4()} name={data.name} bio={data.bio} 
-                            buttonData={'Donate'} address={data.address} date={data.date} />
+                            buttonData={'Invite to pool'} address={data.address} date={data.date} />
                     )])
                 }
             } else {
                 const [ events, error ] = await API.getEvents()
                 
                 if(error) return console.error(error)
-        
-                console.log(events)
     
                 setViewsList(() => [])
                 for(let i = 0; i < events.length; i++) {
@@ -45,7 +41,7 @@ export default function BusinessView() {
         
                     setViewsList(curr => [...curr, (
                         <Views key={uuid.v4()} name={data.name} bio={data.description} 
-                            buttonData={'I Am Attending!'} address={data.address} date={data.date} />
+                            buttonData={'Join Event'} address={data.address} date={data.date} />
                     )])
                 }
             }

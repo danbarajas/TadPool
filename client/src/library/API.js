@@ -22,6 +22,30 @@ export default class API {
         }
     }
 
+    static async getRandomOrganizers() {
+        const [res, error] = await this.get('/random/organizers')
+
+        if(error) return [null, error]
+
+        return [await res.json(), null]
+    }
+
+    static async getRandomBusinesses() {
+        const [res, error] = await this.get('/random/businesses')
+
+        if(error) return [null, error]
+
+        return [await res.json(), null]
+    }
+
+    static async getRandomUsers() {
+        const [res, error] = await this.get('/random/users')
+
+        if(error) return [null, error]
+
+        return [await res.json(), null]
+    }
+
     static async getUsers() {
         const [res, error] = await this.get('/users')
 

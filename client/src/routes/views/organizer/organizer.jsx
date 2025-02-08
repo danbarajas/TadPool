@@ -16,8 +16,6 @@ export default function OrganizerView() {
         const urlSearch = new URLSearchParams(location.search)
         const params = Object.fromEntries(urlSearch.entries())
 
-        console.log(params)
-
         if(params.tab === 'business') {
             const [ organizers, error ] = await API.getBusinesses()
             

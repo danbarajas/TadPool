@@ -29,7 +29,7 @@ export default function CustomerView() {
             
                         setViewsList(curr => [...curr, (
                             <Views key={uuid.v4()} name={data.name} bio={data.bio} 
-                                buttonData={'Invite to pool'} address={data.address} date={data.date} />
+                                buttonData={'Donate'} address={data.address} date={data.date} />
                         )])
                     }
                 } else {
@@ -45,7 +45,7 @@ export default function CustomerView() {
             
                         setViewsList(curr => [...curr, (
                             <Views key={uuid.v4()} name={data.name} bio={data.description} 
-                                buttonData={'Join Event'} address={data.address} date={data.date} />
+                                buttonData={'I Am Attending!'} address={data.address} date={data.date} />
                         )])
                     }
                 }

@@ -15,11 +15,15 @@ $container-hover: rgb(180, 180, 200, 0.5);
     flex-direction: column;
 
     .description {
-        display: flex;
-        flex-direction: column;
-        align-items: start !important;
-
         font-weight: bold;
+
+        .date-location {
+            display: flex;
+            justify-content: start !important;
+            align-items: center;
+            flex-direction: column;
+        }
+        
     }
 
     section {
@@ -31,11 +35,16 @@ $container-hover: rgb(180, 180, 200, 0.5);
         .name {
             display: flex;
             flex-direction: column;
-            align-items: start !important;
+            align-items: center;
             gap: 8px;
 
             font-size: 24px;
             font-weight: bold;
+
+            .name-container {
+                display: flex;
+                
+            }
         }
 
         button {
@@ -53,16 +62,26 @@ $container-hover: rgb(180, 180, 200, 0.5);
         button:hover {
             background-color: rgb(80, 250, 100);
         }
-        
+
+        .icon {
+            border-radius: 50%;
+            padding: 8px;
+
+            aspect-ratio: 1 / 1;
+
+            background-color: rgb(255, 255, 255, 0.5);
+        }
+
         div {
             display: flex;
             justify-content: center;
             align-items: center;
+            gap: 6px;
 
             border-radius: $border-radius-size;
             background-color: $sub-container-theme;
 
-            padding: 0.5em 1em;
+            padding: 0.5em;
         }
     }
 }

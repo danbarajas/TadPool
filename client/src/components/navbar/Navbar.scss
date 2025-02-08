@@ -30,6 +30,23 @@ $border-radius-size: 6px;
         flex-direction: row;
         gap: 0.5em;
 
+        .logo {
+            width: 5em;
+
+            // aspect-ratio: 1 / 1;
+
+            padding: 0 0.5em;
+            border-radius: 6px;
+
+            cursor: pointer;
+            transition: background-color 0.2s ease;
+        }
+
+
+        .logo:hover {
+            background-color: rgb(255, 255, 255, 0.2);            
+        }
+
         .location {
             display: flex;
 

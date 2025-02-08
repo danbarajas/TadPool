@@ -2,64 +2,97 @@ import { useEffect, useState } from 'react'
 import './Navbar.scss'
 
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faCircle, faUserSlash} from '@fortawesome/free-solid-svg-icons'
+import { faBuilding, faCircle, faShop, faUser, faUserSlash} from '@fortawesome/free-solid-svg-icons'
 
 import API from '../../library/API'
 
 export function TopNavBar() {
     const [ businessSelected, setBusinessSelected ] = useState(false) 
     const [ eventsSelected, setEventsSelected ] = useState(false) 
-    const [ displayUsername, setDisplayUsername ] = useState('Login')
+    const [ displayUsername, setDisplayUsername ] = useState('---')
     const [ isInViews, setIsInViews ] = useState(false)
+    const [profileIcon, setProfileIcon  ] = useState(faUserSlash)
 
     function tabRedirect(name) {
         location.search = `?tab=${name}`
     }
 
-    async function setProfile() {
-        const [ users, error ] = await API.getUsers()
+    async function setProfile(tab) {
+        let name = ''
 
-        if(error) return console.error(error)
+        switch(tab) {
+            case 'organizer': {
+                const [ organizer, error ] = await API.getRandomOrganizers()
 
-        const randomIndex = Math.floor(Math.random() * users.length)
-        const username = users[randomIndex].name
+                if(error) return console.error(error)
 
-        setDisplayUsername(() => username)
+                name = organizer.name
+                setProfileIcon(() => faBuilding)
+
+                break
+            }
+            case 'business': {
+                const [ business, error ] = await API.getRandomBusinesses()
+
+                if(error) return console.error(error)
+
+                name = business.name
+                setProfileIcon(() => faShop)
+
+                break
+            }
+            case 'customer': {
+                const [ customer, error ] = await API.getRandomUsers()
+
+                if(error) return console.error(error)
+
+                name = customer.name
+                setProfileIcon(() => faUser)
+
+                break
+            }
+        }
+
+        setDisplayUsername(() => name)
     }
 
     useEffect(() => {
-        if(location.pathname.startsWith('/view')) {
-            const urlSearch = new URLSearchParams(location.search)
-            const params = Object.fromEntries(urlSearch.entries())
+        // setDisplayUsername
+        const urlSearch = new URLSearchParams(location.search)
+        const params = Object.fromEntries(urlSearch.entries())
+        
+        if('tab' in params) {                
+            const clientViewing = location.pathname.replace(/\/(.*?)\//g, '')
             
-            if('tab' in params) {
-                setDisplayUsername(() => '<name here>')
-                setProfile()
-                
-                switch(params.tab) {
-                    case 'business': {
-                        setBusinessSelected(() => true)
+            setProfile(clientViewing)
+            
 
-                        break
-                    }
-                    case 'events': {
-                        setEventsSelected(() => true)
+            switch(params.tab) {
+                case 'business': {
+                    setBusinessSelected(() => true)
 
-                        break
-                    }
+                    break
                 }
-            } else {
-                location.search = '?tab=business'
-                setBusinessSelected(() => false)
-                setEventsSelected(() => false)
-                // setIsInViews(() => false)
+                case 'events': {
+                    setEventsSelected(() => true)
+
+                    break
+                }
             }
+        } else {
+            location.search = '?tab=business'
+            setBusinessSelected(() => false)
+            setEventsSelected(() => false)
+            // setIsInViews(() => false)
+        }
+        if(!location.pathname.startsWith('/view')) {
+            setDisplayUsername(() => 'Login')
         }
     }, [])
 
     return <div className="top-navbar">
         <div className="left">
-            <FontAwesomeIcon icon={faCircle} className='logo'></FontAwesomeIcon>
+            <img src='/TadPool-transparent.png' className='logo' onClick={() => location.assign('/')} />
             <div className="tab">
                 <div className="businesses" data-selected={businessSelected} onClick={() => tabRedirect('business')}>Businesses</div>
                 <div className="events" data-selected={eventsSelected} onClick={() => tabRedirect('events')}>Events</div>
@@ -68,7 +101,7 @@ export function TopNavBar() {
         </div>
         <div className="right">
             <div className="name" onClick={() => !isInViews ? location.assign('/login') : null}>{ displayUsername }</div>
-            <FontAwesomeIcon icon={faUserSlash} className='profile-icon'></FontAwesomeIcon>
+            <FontAwesomeIcon icon={profileIcon} className='profile-icon'></FontAwesomeIcon>
         </div>
     </div>
 }
