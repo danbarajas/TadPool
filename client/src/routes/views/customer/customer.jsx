@@ -12,6 +12,8 @@ import Footer from '../../../components/footer/footer'
 
 export default function CustomerView() {
     const [ viewsList, setViewsList ] = useState([])
+    const [ popUpMessage, setPopUpMessage ] = useState('')
+    const [ popUpId, setPopUpId ] = useState(uuid.v4())
     
         async function load() {
                 const urlSearch = new URLSearchParams(location.search)
@@ -24,12 +26,14 @@ export default function CustomerView() {
                     
                     if(error) return console.error(error)
             
+                        setPopUpMessage('Donated')
+
                     setViewsList(() => [])
                     for(let i = 0; i < organizers.length; i++) {
-                        const data = organizers[i]
-            
+                        const data = organizers[i]            
+
                         setViewsList(curr => [...curr, (
-                            <Views key={uuid.v4()} name={data.name} bio={data.bio} 
+                            <Views key={uuid.v4()} name={data.name} bio={data.bio} onClick={() => setPopUpId(uuid.v4())}
                                 buttonData={'Donate'} address={data.address} date={data.opening_hours} />
                         )])
                     }
@@ -38,14 +42,14 @@ export default function CustomerView() {
                     
                     if(error) return console.error(error)
             
-                    console.log(events)
+                    setPopUpMessage('Attending!')
         
                     setViewsList(() => [])
                     for(let i = 0; i < events.length; i++) {
                         const data = events[i]
             
                         setViewsList(curr => [...curr, (
-                            <Views key={uuid.v4()} name={data.name} bio={data.description} 
+                            <Views key={uuid.v4()} name={data.name} bio={data.description} onClick={() => setPopUpId(uuid.v4())}
                                 buttonData={'I Am Attending!'} address={data.address} date={data.date} />
                         )])
                     }
@@ -58,6 +62,7 @@ export default function CustomerView() {
             }, [])
 
     return <div className="customer-view">
+        <Popup message={popUpMessage} id={popUpId}></Popup>
         <TopNavBar></TopNavBar>
         <div className="views-list">{ viewsList }</div>
         <Footer></Footer>

@@ -4,7 +4,7 @@ import './views.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBuilding, faCalendar, faPencil } from '@fortawesome/free-solid-svg-icons'
 
-export default function Views({ name, bio, address, date, buttonData }) {
+export default function Views({ name, bio, address, date, buttonData, onClick }) {
     const [ tabType, setTabType ] = useState(faBuilding)
 
     useEffect(() => {
@@ -21,9 +21,9 @@ export default function Views({ name, bio, address, date, buttonData }) {
                 </div>
                 {
                     buttonData ? (
-                        <button className="submit">{ buttonData }</button>
+                        <button className="submit" onClick={onClick}>{ buttonData }</button>
                     ) : null
-                }
+                 }
                 
             </div>
             <div className="bio">
