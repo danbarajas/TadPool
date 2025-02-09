@@ -32,7 +32,9 @@ export default function BusinessView() {
         
                     setViewsList(curr => [...curr, (
                         <Views key={uuid.v4()} name={data.name} bio={data.bio} onClick={() => setPopUpId(uuid.v4())}
-                            buttonData={'Invite to pool'} address={data.address} date={data.opening_hours} />
+                            buttonData={'Invite to pool'} address={data.address} date={data.opening_hours}
+                            website={data.website} email={data.email}
+                            />
                     )])
                 }
             } else {
@@ -47,7 +49,9 @@ export default function BusinessView() {
         
                     setViewsList(curr => [...curr, (
                         <Views key={uuid.v4()} name={data.name} bio={data.description} onClick={() => setPopUpId(uuid.v4())}
-                            buttonData={'Join Event'} address={data.address} date={data.date} />
+                            buttonData={'Join Event'} address={data.address} date={data.date}
+                            subhead={data.organizer} website={data.website}
+                            />
                     )])
                 }
             }

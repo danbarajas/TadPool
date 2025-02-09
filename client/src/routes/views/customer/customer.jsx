@@ -9,6 +9,7 @@ import { TopNavBar } from '../../../components/navbar/Navbar'
 
 import API from '../../../library/API'
 import Footer from '../../../components/footer/footer'
+import Popup from '../../../components/popup/Popup'
 
 export default function CustomerView() {
     const [ viewsList, setViewsList ] = useState([])
@@ -34,7 +35,9 @@ export default function CustomerView() {
 
                         setViewsList(curr => [...curr, (
                             <Views key={uuid.v4()} name={data.name} bio={data.bio} onClick={() => setPopUpId(uuid.v4())}
-                                buttonData={'Donate'} address={data.address} date={data.opening_hours} />
+                                buttonData={'Donate'} address={data.address} date={data.opening_hours} 
+                            website={data.website} email={data.email}
+                            />
                         )])
                     }
                 } else {
@@ -50,7 +53,10 @@ export default function CustomerView() {
             
                         setViewsList(curr => [...curr, (
                             <Views key={uuid.v4()} name={data.name} bio={data.description} onClick={() => setPopUpId(uuid.v4())}
-                                buttonData={'I Am Attending!'} address={data.address} date={data.date} />
+                                buttonData={'I Am Attending!'} address={data.address} date={data.date} 
+                                subhead={data.organizer} website={data.website}
+                                
+                            />
                         )])
                     }
                 }
