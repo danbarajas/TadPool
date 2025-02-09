@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import './popup.scss'
+import './Popup.scss'
 
 
 export default function Popup({ id, message }) {
