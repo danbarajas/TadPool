@@ -4,7 +4,7 @@ import './views.scss'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faBuilding, faCalendar, faPencil } from '@fortawesome/free-solid-svg-icons'
 
-export default function Views({ name, bio, address, date, buttonData, onClick }) {
+export default function Views({ name, bio, address, date, buttonData, website, email, subhead, onClick }) {
     const [ tabType, setTabType ] = useState(faBuilding)
 
     useEffect(() => {
@@ -19,6 +19,11 @@ export default function Views({ name, bio, address, date, buttonData, onClick })
                     <FontAwesomeIcon icon={faBuilding} className='icon' />
                     <span>{ name }</span>
                 </div>
+                {
+                    (subhead ? (
+                        <span className='sub-heading'>{ subhead }</span>
+                    ) : null)
+                }
                 {
                     buttonData ? (
                         <button className="submit" onClick={onClick}>{ buttonData }</button>
@@ -35,6 +40,8 @@ export default function Views({ name, bio, address, date, buttonData, onClick })
                 <div className='date-location'>
                     <span className="address">Address: { address }</span>
                     <span className="date">Hours: { date }</span>
+                    <span>{ email }</span>
+                    <span>{ website }</span>
                 </div>
             </div>
         </section>

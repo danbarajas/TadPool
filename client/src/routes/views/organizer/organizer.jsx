@@ -32,7 +32,8 @@ export default function OrganizerView() {
 
                 setViewsList(curr => [...curr, (
                     <Views key={uuid.v4()} name={data.name} bio={data.bio} onClick={() => setPopUpId(uuid.v4())}
-                        buttonData={'Invite to venue'} address={data.address} date={data.opening_hours} />
+                        buttonData={'Invite to venue'} address={data.address} date={data.opening_hours}
+                    />
                 )])
             }
         } else {
@@ -45,10 +46,12 @@ export default function OrganizerView() {
             setViewsList(() => [])
             for(let i = 0; i < events.length; i++) {
                 const data = events[i]
-    
+
                 setViewsList(curr => [...curr, (
                     <Views key={uuid.v4()} name={data.name} bio={data.description} onClick={() => setPopUpId(uuid.v4())}
-                        buttonData={'Invite to venue'} address={data.address} date={data.date} />
+                        buttonData={'Invite to venue'} address={data.address} date={data.date} 
+                        subhead={data.organizer}
+                        />
                 )])
             }
         }
