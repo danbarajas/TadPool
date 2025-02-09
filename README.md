@@ -10,11 +10,16 @@ We implemented the backend using Node.js and JavaScript. The project includes DA
 Merging was the biggest problem, as when we tried to push our personal code to the main branch, we struggled to find the proper commands to merge and ensure we were not overwriting each other's code.
 ## Accomplishments that we're proud of
 One of our significant accomplishments is that we have a good team dynamic for this project. All four people in this team were split evenly, with two handling the logistics and two coding the project. Overall, it is balanced and super communicative.
-## Frontend
-- cd into client dir
-- run npm install to download all the necessary packages contained in package.json
-- run npm run dev to start the frontend server (localhost on port 5173)
-## Backend
-- cd into server dir
-- run npm install to download all the necessary packages contained in package.json
-- run node index.js to start the backend server (localhost on port 3000)
+## How to run it
+### Run the Frontend
+- In the terminal, cd into client directory
+  ```cd client```
+- run ```npm install``` to download all the necessary packages contained in package.json
+- run ```npm run dev``` to start the frontend server (localhost on port 5173)
+### Run the Backend
+- In another terminal, cd into server directory
+  ```cd server```
+- run ```npm install``` to download all the necessary packages contained in package.json
+- run ```node index.js``` to start the backend server (localhost on port 3000)
+### Open the site
+- In your browser, go to ```http://localhost:5173/```
