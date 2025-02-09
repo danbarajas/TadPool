@@ -51,7 +51,7 @@ export default function OrganizerView() {
 
                 setViewsList(curr => [...curr, (
                     <Views key={uuid.v4()} name={data.name} bio={data.description} onClick={() => setPopUpId(uuid.v4())}
-                        buttonData={'Invite to venue'} address={data.address} date={data.date} 
+                        address={data.address} date={data.date} 
                         subhead={data.organizer} website={data.website}
                         />
                 )])
